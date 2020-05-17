@@ -236,3 +236,80 @@ ON (ce.emp_no = de.emp_no)
 INNER JOIN departments as d
 ON (de.dept_no = d.dept_no)
 WHERE dept_name IN ('Development','Sales');
+
+-- CHALLENGE WORK: Deliverable 1
+SELECT e.emp_no,
+e.first_name,
+e.last_name,
+ti.title,
+s.from_date,
+s.salary
+INTO Number_Retiring_Employees_By_Title
+FROM employees as e
+INNER JOIN titles as ti
+ON (e.emp_no = ti.emp_no)
+INNER JOIN salaries as s
+ON (e.emp_no = s.emp_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31');
+SELECT * FROM Number_Retiring_Employees_By_Title;
+SELECT DISTINCT * FROM Number_Retiring_Employees_By_Title;
+
+-- Partition the data to show only most recent title per employee
+SELECT emp_no,
+first_name,
+last_name,
+title,
+from_date,
+salary
+INTO Recent_Retiree_Titles
+FROM
+ (SELECT emp_no,
+first_name,
+last_name,
+title,
+from_date,
+salary, ROW_NUMBER() OVER
+ (PARTITION BY (emp_no)
+ ORDER BY title DESC) rn
+ FROM Number_Retiring_Employees_By_Title
+ ) tmp WHERE rn = 1
+ORDER BY emp_no;
+SELECT * FROM Recent_Retiree_Titles;
+
+-- Deliverable 2
+SELECT e.emp_no,
+e.first_name,
+e.last_name,
+ti.title,
+s.from_date,
+s.to_date
+INTO Mentorship_Eligibility
+FROM employees as e
+INNER JOIN titles as ti
+ON (e.emp_no = ti.emp_no)
+INNER JOIN salaries as s
+ON (e.emp_no = s.emp_no)
+WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31');
+SELECT * FROM Mentorship_Eligibility;
+
+SELECT emp_no,
+first_name,
+last_name,
+title,
+from_date,
+to_date
+INTO New_Mentorship_Eligibility
+FROM
+ (SELECT emp_no,
+first_name,
+last_name,
+title,
+from_date,
+to_date, ROW_NUMBER() OVER
+ (PARTITION BY (emp_no)
+ ORDER BY title DESC) rn
+ FROM Mentorship_Eligibility
+ ) tmp WHERE rn = 1
+ORDER BY emp_no;
+SELECT * FROM New_Mentorship_Eligibility;
