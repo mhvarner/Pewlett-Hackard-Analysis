@@ -84,4 +84,6 @@ This query was then named New_Mentorship_Eligibility and converted into a csv fi
 My problems with this module were in the partitioning section of each deliverable as I kept coming up with errors on my SELECT portions, I had to delete the csv section ahead of the columns listed and it ended up working. 
 
 The results of this challenge of both deliverables are two succinct 20,000 + row employee data charts where management can go in and see which employees who are retiring and who are eligible to mentor (and also born in 1965). The limitations to the analysis queried within SQL are limited to how many columns are displayed. If more information is needed, I would have to create more columns of data and then select them into the query which would then display them on a new data chart. The next steps I would recommend would be to add the departments of each employee so we could see how many employees belonged to each specific department and then create deliverables to each department showing each department the status of each of their respective employees.
+
+Below is the QuickDataBaseDiagram of each of the original csv files created and shwoing the connections between them:
 ![alt text](https://github.com/mhvarner/Pewlett-Hackard-Analysis/blob/master/EmployeeDB.png)
