@@ -1,6 +1,6 @@
 # Pewlett-Hackard-Analysis
 ## Challenge
-For this Challenge, I two deliverables I had to query in SQL. The first deliverable the boss wanted was a data chart reflecting the Number of Retiring Employees by Title where I had to have six columns consisting of Employee number, first name, last name, Title, from_date, and Salary. The second deliverable was to find the mentorship eligibility of the employees which consisted of six columns of Employee number, first name, last name , Title, from_date, and to_date where, according to the challenge description, "to be eligible to participate in the mentorship program, employees will need to have a date of birth that falls between January 1, 1965 and December 31, 1965."
+For this Challenge, there were two deliverables I had to code in SQL using different queries. The first deliverable the boss wanted was a data chart reflecting the Number of Retiring Employees by Title, where I had to have six columns consisting of Employee number, first name, last name, Title, from_date, and Salary. The second deliverable was to find the mentorship eligibility of the employees which consisted of six columns of Employee number, first name, last name , Title, from_date, and to_date where, according to the challenge description, "to be eligible to participate in the mentorship program, employees will need to have a date of birth that falls between January 1, 1965 and December 31, 1965."
 
 For the first deliverable I had to use the query of:
 
